@@ -22,20 +22,25 @@ const getPost = async (req, res) => {
   }
 }
 
-/*const getPostId = async (req, res) => {
-  try {
-   const postId = await post.postId()
-   const id = req.params.id
+const getPostId = async (req, res) => {
   
+  
+   try { 
+    const id = req.params.id
+    console.log(id)
+   const postFound = await post.getPostId(id)
    
   
+   //console.log('Imprimiendo request',req)
+  
 
-   res.json({
+    res.json({  
     success: true,
-    message: 'All Posts',
+    message: 'One Post',
     data: {
-      posts: postId,
+      post: postFound,
     },
+
   })
 
   }catch (error){
@@ -49,9 +54,17 @@ const getPost = async (req, res) => {
       })
   }
 }
-*/
+
+const putPost = async (req , res) => {
+   try {
+
+   } catch {
+
+   }
+}
+
 module.exports = {
   getPost,
-/*  getPostId,*/
-
+getPostId,
+putPost,
 }
