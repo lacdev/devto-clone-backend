@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js",
-    "dev": "npm install cors eslint express mongoose morgan body-parser",
+    "dev": "npm install cors eslint express mongoose morgan body-parser dotenv",
     "nodemon": "npm install -D nodemon"
   },
   "repository": {
