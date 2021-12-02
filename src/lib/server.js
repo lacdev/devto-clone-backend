@@ -1,5 +1,5 @@
 const express = require('express')
-const koder = require('../routers/koder.router')
+const post = require('../routers/post.router')
 const logger = require('../middlewares/logger')
 const cors = require('cors')
 const morgan = require('morgan')
@@ -10,5 +10,5 @@ server.use(express.json())
 server.use(logger)
 server.use(morgan('combined'))
 
-server.use('/koders', koder)
+server.use('/posts', post)
 module.exports = server

@@ -1,13 +1,13 @@
-const koder = require('../usecases/koder.usecase')
+const post = require('../usecases/post.usecase')
 
-const getKoder = async (req, res) => {
+const getPost = async (req, res) => {
   try {
-    const allKoders = await koder.getAllKoders()
+    const allPosts = await post.getAllPosts()
     res.json({
       success: true,
-      message: 'All Koders',
+      message: 'All Posts',
       data: {
-        koders: allKoders,
+        koders: allPosts,
       },
     })
   } catch (error) {
@@ -18,5 +18,5 @@ const getKoder = async (req, res) => {
 }
 
 module.exports = {
-  getKoder,
+  getPost,
 }
