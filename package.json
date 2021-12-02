@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "nodemon index.js",
+    "dev": "npm install cors eslint express mongoose morgan body-parser",
+    "nodemon": "npm install -D nodemon"
   },
   "repository": {
     "type": "git",
