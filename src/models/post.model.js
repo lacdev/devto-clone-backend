@@ -1,36 +1,53 @@
-const { Schema, model } = require('mongoose')
+const mongoose = require('mongoose')
 
-const koderSchema = new Schema({
-  name: {
-    type: String,
-    minLength: 2,
-    maxLength: 100,
-    required: true,
+const postSchema = new mongoose.Schema(
+  {
+    name: {
+      type: String,
+      minLength: 2,
+      maxLength: 50,
+      required: true,
+    },
+    title: {
+      type: String,
+      minLength: 10,
+      maxLength: 150,
+      required: true,
+    },
+    imageURL: {
+      type: String,
+      minLength: 150,
+      maxLength: 150,
+      required: true,
+    },
+    content: {
+      type: String,
+      minLength: 150,
+      maxLength: 1000,
+      required: true,
+    },
+    tags: {
+      type: Array,
+      "maxItems": 4,
+      "items": {
+                "type": "string"
+               },
+      required: true,
+    },
+    date: Date,
   },
-  lastName: {
-    type: String,
-    minLength: 2,
-    maxLength: 100,
-    required: true,
-  },
-  age: {
-    type: Number,
-    min: 0,
-    maxLength: 120,
-    required: true,
-  },
-  gender: {
-    type: String,
-    required: true,
-    maxLength: 1,
-    enum: ['m', 'f', 'x'],
-  },
-})
+  { timestamps: true }
+)
 
-const Koder = model('koder', koderSchema)
+const Post = mongoose.model('post', postSchema)
 
-//Exportamos el modelo Koder
-module.exports = Koder
+module.exports = Post
+
+
+
+
+
+
 
 // const newKoder = new Koder({
 //   name: 'Rafa',
