@@ -1,11 +1,19 @@
 const Post = require('../models/post.model')
 
 async function getAllPosts() {
-  const allPosts = await Post.find()
+  return Post.find()
+}
 
-  return allPosts
+async function createPost(post) {
+  return Post.create(post)
+}
+
+async function deletePostById(id) {
+  return Post.findByIdAndDelete(id)
 }
 
 module.exports = {
   getAllPosts,
+  createPost,
+  deletePostById,
 }
