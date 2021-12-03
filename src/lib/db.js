@@ -1,3 +1,7 @@
+//lib: codigos de soporte que se pueden utilizar en algun otro lado
+
+
+
 const mongoose = require('mongoose')
 
 const connect = ({ DB_USER, DB_HOST, DB_PASSWORD, DB_NAME }) => {

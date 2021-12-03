@@ -10,5 +10,6 @@ server.use(express.json())
 server.use(logger)
 server.use(morgan('combined'))
 
+// server.use('/koders', koder)
 server.use('/koders', koder)
 module.exports = server

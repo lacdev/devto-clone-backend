@@ -1,36 +1,30 @@
 const { Schema, model } = require('mongoose')
 
-const koderSchema = new Schema({
+const userSchema = new Schema({
   name: {
     type: String,
     minLength: 2,
     maxLength: 100,
     required: true,
   },
-  lastName: {
-    type: String,
-    minLength: 2,
-    maxLength: 100,
-    required: true,
-  },
-  age: {
-    type: Number,
-    min: 0,
-    maxLength: 120,
-    required: true,
-  },
-  gender: {
+  email: {
     type: String,
     required: true,
-    maxLength: 1,
-    enum: ['m', 'f', 'x'],
+    unique: true,
   },
+  password: {
+    type: String,
+    required: true,
+    minLength: 1,
+  }
+
 })
 
-const Koder = model('koder', koderSchema)
+//model(coleccion: string, schema:mongoose.Schema)
+const User = model('user', userSchema)
 
 //Exportamos el modelo Koder
-module.exports = Koder
+module.exports = User
 
 // const newKoder = new Koder({
 //   name: 'Rafa',
