@@ -17,7 +17,7 @@ const postSchema = new mongoose.Schema(
     imageURL: {
       type: String,
       minLength: 150,
-      maxLength: 150,
+      maxLength: 500,
       required: true,
     },
     content: {
@@ -30,7 +30,7 @@ const postSchema = new mongoose.Schema(
       type: Array,
       required: true,
     },
-    date: Date,
+    date: String,
   },
   { timestamps: true }
 )
