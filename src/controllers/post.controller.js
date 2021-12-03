@@ -57,8 +57,29 @@ const getPostId = async (req, res) => {
 
 const putPost = async (req , res) => {
    try {
+    const id = req.params.id
+//    console.log("🚀 ~ file: post.controller.js ~ line 64 ~ putPost ~ id", id)
+    const postBody = req.body
+//    console.log("🚀 ~ file: post.controller.js ~ line 62 ~ putPost ~ postBody", postBody)
+    const postRenewd= await post.putPost(id, req)//{$set: {updateOps}} 
+   
+    res.json({  
+      success: true,
+      message: 'One Post',
+      data: {
+        post: postRenewd,
+      }
+    })
 
-   } catch {
+   } catch (error) {
+    console.error(error)
+    res.statusCode = 500
+    res.json(
+      { 
+        success: false, 
+        message: 'Could not get the post', 
+        error 
+      })
 
    }
 }
