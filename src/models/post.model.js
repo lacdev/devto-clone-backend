@@ -30,7 +30,7 @@ const postSchema = new mongoose.Schema(
       type: Array,
       required: true,
     },
-    date: String,
+    date: Date,
   },
   { timestamps: true }
 )
