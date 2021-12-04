@@ -15,21 +15,23 @@ async function createPost(post) {
 async function putPost(id, req) {
   const updateOps = {}
   const postData = req.body
- console.log("🚀 ~ file: post.usecase.js ~ line 19 ~ putPost ~ body", req.body)
-  
+  console.log('🚀 ~ file: post.usecase.js ~ line 19 ~ putPost ~ body', req.body)
+
   for (const ops of postData) {
     updateOps[ops.propertyName] = ops.value
   }
-  console.log("🚀 ~ file: post.usecase.js ~ line 23 ~ putPost ~ updateOps", updateOps)
-  const updatePost = await Post.findByIdAndUpdate(id, updateOps )
-  console.log("🚀 ~ file: post.usecase.js ~ line 37 ~ putPost ~ updatePost", updatePost)
-  
-
+  console.log(
+    '🚀 ~ file: post.usecase.js ~ line 23 ~ putPost ~ updateOps',
+    updateOps
+  )
+  const updatePost = await Post.findByIdAndUpdate(id, updateOps)
+  console.log(
+    '🚀 ~ file: post.usecase.js ~ line 37 ~ putPost ~ updatePost',
+    updatePost
+  )
 
   return updatePost
 }
-
-
 
 async function deletePostById(id) {
   return Post.findByIdAndDelete(id)
