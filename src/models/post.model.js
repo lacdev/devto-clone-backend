@@ -6,29 +6,29 @@ const postSchema = new mongoose.Schema(
       type: String,
       minLength: 2,
       maxLength: 50,
-      required: true
+      required: false
     },
     title: {
       type: String,
       minLength: 10,
       maxLength: 150,
-      required: true
+      required: false
     },
     imageURL: {
       type: String,
       minLength: 10,
       maxLength: 500,
-      required: true
+      required: false
     },
     content: {
       type: String,
       minLength: 10,
       maxLength: 1000,
-      required: true
+      required: false
     },
     tags: {
       type: Array,
-      required: true
+      required: false
     },
     date: Date,
   },
