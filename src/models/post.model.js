@@ -10,25 +10,32 @@ const postSchema = new mongoose.Schema(
     },
     title: {
       type: String,
-      minLength: 10,
+      minLength: 4,
       maxLength: 150,
       required: false
     },
     imageURL: {
       type: String,
-      minLength: 10,
       maxLength: 500,
       required: false
     },
     content: {
       type: String,
-      minLength: 10,
       maxLength: 1000,
       required: false
     },
     tags: {
       type: Array,
       required: false
+    },
+    reactions: {
+      type: Number,
+      required: true,
+      max: 250,
+    },
+    avatar: {
+      type: String,
+      required: true,
     },
     date: Date,
   },
@@ -38,46 +45,3 @@ const postSchema = new mongoose.Schema(
 const Post = mongoose.model('post', postSchema)
 
 module.exports = Post
-
-/* 
-//Schema
-
-// Define propiedades, estructura y los tipos de un documento. Cuando creamos un
-// documento internamente se validara que cumpla con la estructura y tipos del
-// esquema. */
-
-/* const koderSchema = new mongoose.Schema({
-    name: String,
-    age: Number
-}) */
-
-//Tipos disponibles en el Schema
-
-//Los tipos disponibles a usar en un schema de Mongoose son casi los mismos que
-// los tipos de JS
-
-// Array - []
-// Boolean - true/false
-// Buffer - Bytes
-// Date - 2021-11-26
-// *Mixed - Tipos de dato generico
-// Number - 42
-// ObjectId - 1092323238238
-// Stirng - 'texto'
-
-// definidos en mongoose.Schema.Types
-
-//Modelo
-
-/*
-En Mongoose, un modelo nos permite crear y consultar documentos en una coleccion 
-siguiendo un esquema. Para crear un modelo necesitamos darle el nombre de la 
-collecion y el esquema a seguir.
-El esquema define como deben ser los documentos, pero el modelo se encarga de
-crear documentos.
-const KodeModel = mongoose.model('Koder', koderSchema)
-const newKoder = new KoderModel({
-    name: "Un Koder",
-    age: 15
-})
-*/
