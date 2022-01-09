@@ -30,6 +30,11 @@ const postSchema = new mongoose.Schema(
       type: Array,
       required: true,
     },
+    reactions: {
+      type: Number,
+      required: true,
+      max: 250,
+    },
     date: Date,
   },
   { timestamps: true }
