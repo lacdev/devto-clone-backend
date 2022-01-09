@@ -10,19 +10,17 @@ const postSchema = new mongoose.Schema(
     },
     title: {
       type: String,
-      minLength: 10,
+      minLength: 4,
       maxLength: 150,
       required: true,
     },
     imageURL: {
       type: String,
-      minLength: 150,
       maxLength: 500,
       required: true,
     },
     content: {
       type: String,
-      minLength: 150,
       maxLength: 1000,
       required: true,
     },
