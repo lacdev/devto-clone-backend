@@ -65,16 +65,8 @@ async function createPost(post) {
   return Post.create(post)
 }
 
-async function putPost(id, req) {
-  const updateOps = {}
-  const postData = req.body
-
-  for (const ops of postData) {
-    updateOps[ops.propertyName] = ops.value
-  }
-
-  const updatePost = await Post.findByIdAndUpdate(id, updateOps)
-  return updatePost
+async function putPost(id, body) {
+  return await Post.findByIdAndUpdate(id, body)
 }
 
 async function deletePostById(id) {
