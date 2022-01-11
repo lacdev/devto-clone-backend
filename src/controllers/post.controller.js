@@ -97,7 +97,7 @@ const putPost = async (req, res) => {
   try {
     const id = req.params.id
     const postBody = req.body
-    const postRenewd = await post.putPost(id, req) //{$set: {updateOps}}
+    const postRenewd = await post.putPost(id, postBody) //{$set: {updateOps}}
 
     res.json({
       success: true,
