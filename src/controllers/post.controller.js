@@ -2,12 +2,22 @@ const post = require('../usecases/post.usecase')
 
 const getPosts = async (req, res) => {
   try {
-    //Process the request
+    const { date } = req.query
 
-    //Make use case
+    if (date) {
+      const topPosts = await post.getTopPostsByDate(date)
+      res.json({
+        success: true,
+        message: 'Top Posts by ' + date,
+        data: {
+          posts: topPosts,
+        },
+      })
+      return
+    }
+
     const allPosts = await post.getAllPosts()
 
-    //Response to the client.
     res.json({
       success: true,
       message: 'All Posts',
